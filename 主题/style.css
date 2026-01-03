@@ -1,0 +1,16 @@
+/*
+Theme Name: 精品烟酒商城
+Theme URI: https://example.com
+Author: Your Name
+Author URI: https://example.com
+Description: 专业烟酒销售电商主题，功能完整，包含购物车、收藏、商品展示等核心功能，UI动画流畅，支持响应式设计。
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: tobacco-wine-shop
+Tags: e-commerce, shop, tobacco, wine, responsive, modern
+*/
+
+/* 导入主样式文件 */
+@import url('css/style.css');
+

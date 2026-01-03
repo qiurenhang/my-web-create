@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精品烟酒商城 - 专业烟酒销售平台</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-wine-bottle"></i>
+                    <span>精品烟酒商城</span>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box" style="position: relative;">
+                        <input type="text" id="searchInput" placeholder="搜索商品...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                    <div class="user-actions">
+                        <a href="#" class="action-btn" id="favoritesBtn">
+                            <i class="fas fa-heart"></i>
+                            <span class="badge" id="favoritesCount">0</span>
+                        </a>
+                        <a href="#" class="action-btn" id="cartBtn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge" id="cartCount">0</span>
+                        </a>
+                        <a href="#" class="action-btn">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-category="all">全部商品</a></li>
+                    <li><a href="#" class="nav-link" data-category="wine">白酒</a></li>
+                    <li><a href="#" class="nav-link" data-category="beer">啤酒</a></li>
+                    <li><a href="#" class="nav-link" data-category="whiskey">洋酒</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 轮播图 -->
+    <section class="banner">
+        <div class="banner-slider">
+            <div class="slide active">
+                <div class="slide-content">
+                    <h2>精品烟酒，品质保证</h2>
+                    <p>正品保障，假一赔十</p>
+                    <button class="btn-primary">立即购买</button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>新用户专享优惠</h2>
+                    <p>首单立减50元</p>
+                    <button class="btn-primary">立即领取</button>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>限时特惠</h2>
+                    <p>全场满500减100</p>
+                    <button class="btn-primary">查看详情</button>
+                </div>
+            </div>
+        </div>
+        <div class="banner-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 商品分类标题 -->
+            <div class="section-header">
+                <h2 id="sectionTitle">全部商品</h2>
+                <div class="sort-options">
+                    <select id="sortSelect">
+                        <option value="default">默认排序</option>
+                        <option value="price-asc">价格从低到高</option>
+                        <option value="price-desc">价格从高到低</option>
+                        <option value="sales">销量优先</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 商品列表 -->
+            <div class="products-grid" id="productsGrid">
+                <!-- 商品卡片将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 购物车侧边栏 -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>购物车</h3>
+            <button class="close-btn" id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>购物车是空的</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>总计：</span>
+                <span class="total-price">¥<span id="cartTotal">0.00</span></span>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn">去结算</button>
+        </div>
+    </div>
+
+    <!-- 收藏侧边栏 -->
+    <div class="favorites-sidebar" id="favoritesSidebar">
+        <div class="favorites-header">
+            <h3>我的收藏</h3>
+            <button class="close-btn" id="closeFavorites"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="favorites-body" id="favoritesBody">
+            <div class="empty-favorites">
+                <i class="fas fa-heart"></i>
+                <p>还没有收藏商品</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 遮罩层 -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- 商品详情模态框 -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+            <div class="modal-body" id="modalBody">
+                <!-- 商品详情内容将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示消息 -->
+    <div class="toast" id="toast"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <p>专业烟酒销售平台，正品保障，品质服务</p>
+                </div>
+                <div class="footer-section">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#">配送说明</a></li>
+                        <li><a href="#">退换货政策</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p>客服热线：400-888-8888</p>
+                    <p>工作时间：9:00-21:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 精品烟酒商城. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
